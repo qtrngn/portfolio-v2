@@ -4,7 +4,7 @@ import CTA from './CTA';
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-transparent z-50 px-6">
+    <nav className="fixed top-0 left-0 w-full bg-white z-50 px-6">
       <div className="max-w-[1200px] mx-auto bg-transparent  py-4 flex justify-between">
         <div className="flex-1">
           <Link to="/">

@@ -7,9 +7,9 @@ const Skills = () => {
     <div className="max-w-[1200px] mx-auto flex flex-col gap-2 py-2">
           <div className="max-w-[1200px] mx-auto flex flex-col gap-2">
         {/* section title */}
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-red-600" />
-          <span className="text-l font-semibold tracking-wider text-gray-700 ">
+        <div className="flex items-center gap-2 pb-2">
+          <div className="w-1 h-1 bg-gray-700" />
+          <span className="text-l font-semibold tracking-wider text-gray-700">
             skills
           </span>
         </div>

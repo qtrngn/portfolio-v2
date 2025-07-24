@@ -5,7 +5,7 @@ const CTAButton = ({ to = "", children }) => {
     return (
       <Link
         to={to}
-        className="inline-flex w-fit h-fit items-center gap-2 bg-black text-white rounded-full px-3 py-2 shadow hover:scale-105 transition-transform"
+        className="inline-flex w-fit h-fit items-center gap-2 bg-black text-white rounded-full px-3 py-2 shadow hover:scale-105 transition-transform uppercase"
       >
         <span className="text-sm font-medium">{children}</span>
         <span className="w-10 h-7 bg-[#c0392b] rounded-full flex items-center justify-center">
