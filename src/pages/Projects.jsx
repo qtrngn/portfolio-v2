@@ -63,7 +63,7 @@ const Projects = () => {
                     <img
                       src={proj.image}
                       alt={proj.title}
-                      className="object-cover w-full h-[360px]"
+                      className="object-cover w-full h-[200px] sm:h-[280px] md:h-[360px]"
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/80 transition duration-300 pointer-events-none"></div>
                   </div>

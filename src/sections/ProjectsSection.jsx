@@ -9,17 +9,18 @@ const ProjectSection = () => {
         {/* section title */}
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 bg-red-600" />
-          <span className="text-l font-semibold tracking-wider text-gray-700 uppercase">
+          <span className="text-sm sm:text-base font-semibold tracking-wider text-gray-700 uppercase">
             Projects
           </span>
         </div>
         <div className="flex justify-between items-start max-w-[1200px] mb-8">
-          <h2 className="text-3xl font-extrabold leading-snug text-gray-700">
-            MY NEWEST <br /> PROJECTS
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug text-gray-700">
+            <span>MY NEWEST</span> 
+            <br/>
+            <span>PROJECTS</span>
           </h2>
-          <p className="max-w-[350px] text-s text-gray-500 mt-1">
-            A showcase of how I went from knowing nothing about code to creating
-            projects that work.
+          <p className="hidden md:block max-w-[350px] text-sm text-gray-500 mt-1">
+           "From clueless to code: How I learned to build things that work"
           </p>
         </div>
       </div>
@@ -32,7 +33,7 @@ const ProjectSection = () => {
               <img
                 src={proj.image}
                 alt={proj.title}
-                className="object-cover w-full h-[360px]"
+                className="object-cover w-full h-[200px] sm:h-[280px] md:h-[360px]"
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/80 transition duration-300 pointer-events-none"></div>
             </div>
@@ -56,8 +57,8 @@ const ProjectSection = () => {
         <div className="flex justify-center mt-4 col-span-full ">
           <CTA to="/projects">View all projects</CTA>
         </div>
-        {/* border section */}
-        <div className="border-t border-gray-200 col-span-full" />
+        {/* border section
+        <div className="border-t border-gray-200 col-span-full" /> */}
       </div>
     </section>
   );

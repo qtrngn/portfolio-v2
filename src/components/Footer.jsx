@@ -4,7 +4,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-white w-full px-6 pt-10 pb-10">
+    <footer className="hidden sm:block bg-white w-full px-6 pt-10 pb-10">
       {/* Top Section */}
       <div className="w-full flex justify-center">
         <div className="max-w-[1200px] w-full grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm text-gray-700 justify-items-center sm:justify-items-center">

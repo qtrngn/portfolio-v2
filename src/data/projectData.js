@@ -1,7 +1,7 @@
-import project1 from "../assets/projects-image/netflix.jpeg";
-import project2 from "../assets/projects-image/restaurant.jpeg";
-import project3 from "../assets/projects-image/petsmart.jpeg";
-import project4 from "../assets/projects-image/art.jpeg";
+import project1 from "../assets/projects-image/netflix.webp";
+import project2 from "../assets/projects-image/restaurant.webp";
+import project3 from "../assets/projects-image/petsmart.webp";
+import project4 from "../assets/projects-image/art.webp";
 
 const projects = [
   {

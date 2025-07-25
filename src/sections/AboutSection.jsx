@@ -8,19 +8,19 @@ const AboutSection = () => {
         {/* section title */}
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 bg-red-600" />
-          <span className="text-l font-semibold tracking-wider text-gray-700 uppercase">
+          <span className="text-sm sm:text-base font-semibold tracking-wider text-gray-700 uppercase">
             about
           </span>
         </div>
 
         {/* Heading content */}
-        <div className="pl-40">
-          <p className="text-l tracking-wide">
-            <span className="font-bold text-black">
+        <div className="pl-0 md:pl-40">
+          <p className="text-sm sm:text-base tracking-wide leading-relaxed">
+            <span className="block font-bold text-black">
               "HI, I'M A WEB DEVELOPER WHO RECENTLY GRADUATED FROM BCIT, WHERE I
               DISCOVERED MY PASSION FOR CODING.
-            </span>{" "}
-            <span className="text-gray-500 font-medium">
+            </span>
+            <span className="text-gray-500 font-medium block">
               SINCE THEN, I'VE BEEN DEVELOPING MY SKILLS AND EXPLORING NEW
               TECHNOLOGIES. THIS IS JUST THE BEGINNING OF MY JOURNEY, I'M
               EXCITED TO SEE WHERE IT TAKES ME."
@@ -28,11 +28,13 @@ const AboutSection = () => {
           </p>
         </div>
         {/* button */}
-        <div className="pl-40 mt-6">
+        <div className="mt-6 pl-0 flex justify-center md:pl-40 md:justify-start">
           <CTA to="/about">More about me</CTA>
         </div>
         {/* skills section */}
+        <div className="hidden md:block">
         <Skills />
+        </div>
       </div>
     </section>
   );
