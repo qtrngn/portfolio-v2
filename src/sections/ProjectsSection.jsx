@@ -1,14 +1,33 @@
+import { useState } from "react";
+
 import CTA from "../components/CTA";
 import projects from "../data/projectData";
+import { projectDetails } from "../data/projectDetails";
+import { Modal } from "../components/Modal";
+import ProjectDetail from "../components/ProjectDetails";
+
 
 
 const ProjectSection = () => {
+  const featuredProjects = projects.filter(p => p.featured);
+   const [selectedId, setSelectedId] = useState(null);
+   const [modalOpen, setModalOpen] = useState(false);
+   const activeProject = projectDetails.find((d) => d.id === selectedId);
+ 
+   const handleClick = (id) => {
+     setSelectedId(id);
+     setModalOpen(true);
+   };
+
+ 
   return (
-    <section id="project" className="w-full bg-white px-6 pb-15">
+   
+   <>
+   <section id="project" className="w-full bg-white px-6 pb-15">
       <div className="max-w-[1200px] mx-auto flex flex-col gap-2">
         {/* section title */}
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-red-600" />
+          <div className="w-2 h-2 bg-[#c0392b]" />
           <span className="text-sm sm:text-base font-semibold tracking-wider text-gray-700 uppercase">
             Projects
           </span>
@@ -27,8 +46,12 @@ const ProjectSection = () => {
 
       {/* Projects Grid */}
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
-        {projects.map((proj, idx) => (
-          <div key={idx} className="flex flex-col">
+      {featuredProjects.map((proj) => (
+            <div
+              key={proj.id}
+              className="flex flex-col cursor-pointer"
+              onClick={() => handleClick(proj.id)}
+            >
             <div className="overflow-hidden rounded-lg group relative">
               <img
                 src={proj.image}
@@ -61,6 +84,12 @@ const ProjectSection = () => {
         <div className="border-t border-gray-200 col-span-full" /> */}
       </div>
     </section>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+      {activeProject && <ProjectDetail project={activeProject} />}
+    </Modal>
+    </>
   );
 };
 export default ProjectSection;
+
+

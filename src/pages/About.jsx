@@ -12,7 +12,7 @@ const About = () => {
 
   <div className="rounded-2xl overflow-hidden">
     <img
-      src={Profile}
+      // src={Profile}
       alt="profile"
       className="w-full h-[350px] object-cover"
     />

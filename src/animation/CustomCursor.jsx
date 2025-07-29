@@ -31,7 +31,7 @@ const CustomCursor = () => {
         el.removeEventListener("mouseleave", leaveHover);
       });
     };
-  }, []);
+  }, );
 
   return (
     <motion.div

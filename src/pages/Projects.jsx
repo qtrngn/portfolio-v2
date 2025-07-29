@@ -1,8 +1,13 @@
 import { useState } from "react";
 import projects from "../data/projectData";
+import { projectDetails } from "../data/projectDetails";
+import ProjectDetail from "../components/ProjectDetails";
+import { Modal } from "../components/Modal"
 
 const Projects = () => {
   const [selected, setSelected] = useState(projects[0].id);
+  const [modalOpen, setModalOpen] = useState(false); 
+  const activeDetail = projectDetails.find((d) => d.id === selected)
   return (
     <>
       <section className="w-full px-6 py-40 bg-white ">
@@ -58,7 +63,12 @@ const Projects = () => {
             {projects
               .filter((proj) => proj.id === selected)
               .map((proj) => (
-                <div key={proj.id} className="flex flex-col">
+                <div key={proj.id} className="flex flex-col"
+                onClick={() => {
+                  setSelected(proj.id);
+                  setModalOpen(true);
+                }}
+                >
                   <div className="overflow-hidden rounded-lg group relative">
                     <img
                       src={proj.image}
@@ -87,6 +97,10 @@ const Projects = () => {
           </div>
         </div>
       </section>
+      {/* Modal */}
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        {activeDetail && <ProjectDetail project={activeDetail} />}
+      </Modal>
     </>
   );
 };

@@ -7,7 +7,7 @@ const AboutSection = () => {
       <div className="max-w-[1200px] mx-auto flex flex-col gap-2">
         {/* section title */}
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-red-600" />
+          <div className="w-2 h-2 bg-[#c0392b]" />
           <span className="text-sm sm:text-base font-semibold tracking-wider text-gray-700 uppercase">
             about
           </span>

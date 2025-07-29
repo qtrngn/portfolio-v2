@@ -1,41 +1,103 @@
-import project1 from "../assets/projects-image/netflix.webp";
-import project2 from "../assets/projects-image/restaurant.webp";
-import project3 from "../assets/projects-image/petsmart.webp";
-import project4 from "../assets/projects-image/art.webp";
+import netflix from "../assets/projects-image/netflix.webp";
+import restaurant from "../assets/projects-image/restaurant.webp";
+import petsmart from "../assets/projects-image/petsmart.webp";
+import portfolio from "../assets/projects-image/art.webp";
+import weather from "../assets/projects-image/weather.webp";
+import book from "../assets/projects-image/book.webp";
+import books from "../assets/projects-image/books.webp";
+import finance from "../assets/projects-image/finance.webp";
+import paper from "../assets/projects-image/paper.webp";
+
 
 const projects = [
   {
     id: "netflix",
-    image: project1,
+    image: netflix,
     title: "NETFLIX CLONE LANDING PAGE",
-    year: "2025",
+    year: "2024",
     tags: ["React", "Web Development"],
+    featured: false, 
   },
 
   {
     id: "restaurant",
-    image: project2,
+    image: restaurant,
     title: "RESTAURANT WEBSITE",
     year: "2024",
     tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
+    featured: false, 
   },
 
   {
     id: "petsmart",
-    image: project3,
+    image: petsmart,
     title: "PETSMART APPLICATION REDESIGN",
     year: "2024",
     tags: ["Figma", "UI/UX"],
+    featured: false, 
   },
 
   {
     id: "portfolio",
-    image: project4,
-    title: "PORTFOLIO WEBSITE",
+    image: portfolio,
+    title: "PICASSO PORTFOLIO WEBSITE",
     year: "2024",
     tags: ["HTML", "CSS", "Web Development"],
+    featured: false, 
   },
+
+  {
+    id: "weather-application",
+    image: weather,
+    title: "WEATHER APPLICATION",
+    year: "2025",
+    tags: ["React Native","WeatherAPI", "Lottie", "Axios", "App Development", ],
+    featured: true, 
+  },
+  {
+    id: "book-explorers",
+    image: book,
+    title: "BOOK EXPLORERS APPLICATION",
+    year: "2025",
+    tags: ["React Native", "Firebase", "App Development", ],
+    featured: true, 
+  },
+
+  {
+    id: "book-explorers-website",
+    image: books,
+    title: "BOOK EXPLORERS WEBSITE",
+    year: "2025",
+    tags: ["React","TypeScript", "MySQL", "Axios","Express", "Web Development", ],
+    featured: false, 
+  },
+
+
+  {
+    id: "financial-dashboard",
+    image: finance,
+    title: "FINANCIAL DASHBOARD",
+    year: "2025",
+    tags: ["React ", "Mui", "TypeScript", "MongoDB", "Express", "Web Development",],
+    featured: true, 
+  },
+
+  {
+    id: "paper-trading",
+    image: paper,
+    title: "PAPER TRADING SIMULATOR",
+    year: "2025",
+    tags: ["React ","TypeScript", "Alpaca", "Firebase", "Express", "Axios", "Web Development",],
+    featured: true, 
+  },
+
+
 ];
+
+
+
 export default projects;
+
+
 
 
