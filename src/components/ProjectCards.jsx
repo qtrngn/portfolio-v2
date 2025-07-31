@@ -14,7 +14,7 @@ export default function ProjectCard({ project, onClick }) {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover"
+          className="w-full h-full object-contain object-center"
         />
       </div>
 
