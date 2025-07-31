@@ -1,12 +1,12 @@
-import netflix from "../assets/projects-image/netflix.webp";
-import restaurant from "../assets/projects-image/restaurant.webp";
-import petsmart from "../assets/projects-image/petsmart.webp";
-import portfolio from "../assets/projects-image/art.webp";
-import weather from "../assets/projects-image/weather.webp";
-import book from "../assets/projects-image/book.webp";
-import books from "../assets/projects-image/books.webp";
-import finance from "../assets/projects-image/finance.webp";
-import paper from "../assets/projects-image/paper.webp";
+import netflix from "../assets/projects-image/netflix.png";
+import restaurant from "../assets/projects-image/restaurant.png";
+import petsmart from "../assets/projects-image/petsmart.png";
+import portfolio from "../assets/projects-image/art.png";
+import weather from "../assets/projects-image/weather.png";
+import book from "../assets/projects-image/book.png";
+import books from "../assets/projects-image/books.png";
+import finance from "../assets/projects-image/finance.png";
+import paper from "../assets/projects-image/paper.png";
 
 
 const projects = [
@@ -59,7 +59,7 @@ const projects = [
     image: book,
     title: "BOOK EXPLORERS APPLICATION",
     year: "2025",
-    tags: ["React Native", "Firebase", "App Development", ],
+    tags: ["React Native", "Firebase","Axios","Google Books APIs", "App Development", ],
     featured: true, 
   },
 

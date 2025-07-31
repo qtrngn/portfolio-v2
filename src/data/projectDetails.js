@@ -117,7 +117,7 @@ export const projectDetails = [
         id: "book-explorers", 
         type: "School project",
         title: "Book explorers application", 
-        description: "Book Explorer is a mobile app built with React Native that allows users to search for books using the Google Books API and securely log in using Firebase Authentication. The idea behind the app was to create a functional tool for book discovery while building my skills with API integration, authentication flows, and mobile UI design.",
+        description: "Book Explorers is a mobile app built with React Native that allows users to search for books using the Google Books API and securely log in using Firebase Authentication. The idea behind the app was to create a functional tool for book discovery while building my skills with API integration, authentication flows, and mobile UI design.",
         features: [
            "Search and browse books via the Google Books API", 
            "User authentication with Firebase (sign up, login)",
@@ -127,12 +127,12 @@ export const projectDetails = [
             "React Native",
             "Google Books API", 
             "Firebase", 
-            "Axios"
+            "Axios",
         ],
         image: [],
         github:  "https://github.com/qtrngn/bookExplorer-app",
         liveDemo: null,
-        tags: ["React Native", "Firebase", "App Development", ],
+        tags: ["React Native", "Firebase","Axios", "App Development" ],
     },
 
     {

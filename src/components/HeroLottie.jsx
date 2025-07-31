@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
 
 import Cat from "../assets/lottie/Cat.json";
-import Welcome from "../assets/lottie/Welcome.json";
 import CatHead from "../assets/lottie/CatHead.json";
 
 const animations = [
@@ -12,12 +11,7 @@ const animations = [
     speed: 0.4,
     position: "items-end", 
   },
-  {
-    data: Welcome,
-    duration: 3300,
-    speed: 0.7,
-    position: "items-center",
-  },
+
   {
     data: CatHead,
     duration: 2500,
@@ -47,7 +41,7 @@ const HeroLottie = () => {
   }, [index]);
 
   return (
-    <div className="w-[350px] h-[350px] relative flex overflow-hidden bg-white ">
+    <div className="w-[450px] h-[450px] relative flex overflow-hidden bg-white ">
       <div
         className={`absolute inset-0 w-full overflow-hidden flex transition-opacity duration-500
           ${fade ? "opacity-100" : "opacity-0"}
@@ -60,7 +54,7 @@ const HeroLottie = () => {
           loop={true}
           autoplay={true}
           speed={animations[index].speed}
-          key={index} // force re-render on index change
+          key={index} 
           rendererSettings={{
             preserveAspectRatio: "xMidYMid slice",
             clearCanvas: true,

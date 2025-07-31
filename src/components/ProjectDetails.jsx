@@ -20,10 +20,10 @@ export default function ProjectDetail({ project }) {
       {/* IMAGES */}
       <Carousel images={images} altPrefix={project.title} />
       
- {/* DESCRIPTION */}
+      { /* DESCRIPTION */}
       <p>{project.description}</p>
 
-   {/* FEATURES */}
+        {/* FEATURES */}
       {project.features && (
         <div>
           <h3 className="text-lg font-semibold text-gray-700">Features</h3>
@@ -43,7 +43,7 @@ export default function ProjectDetail({ project }) {
             {project.technologies.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 bg-[#c0392b] rounded-full text-sm text-white"
+                className="px-2 py-1 rounded-full text-sm text-black border-2 border-black"
               >
                 {tech}
               </span>
