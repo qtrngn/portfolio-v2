@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
+  const openResume = (e) => {
+    e.preventDefault();
+  window.open("/Resume.pdf", "_blank", "noopener,noreferrer");
+  }
   return (
     <section className="w-full md:h-screen flex items-center justify-center px-6 bg-white relative overflow-hidden pt-20">
       <div className="max-w-[1200px] w-full flex flex-col md:flex-row items-center justify-center md:justify-between min-h-[60vh] md:min-h-0 z-10">
@@ -14,7 +18,6 @@ const Hero = () => {
 
         {/* Left side content */}
         <div className="flex flex-col gap-6 max-w-xl pt-0 md:pt-10 text-center md:text-left items-center md:items-start">
-         
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -22,14 +25,12 @@ const Hero = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight uppercase"
           >
             <Typewriter
-              words={[
-                "HI! I'M QUYNH, I TURNED CAFFEINE INTO CODE ☕️",     
-              ]}
-              loop={1}              
-              cursor               
-              cursorStyle="|"      
+              words={["HI! I'M QUYNH, I TURNED CAFFEINE INTO CODE ☕️"]}
+              loop={1}
+              cursor
+              cursorStyle="|"
               typeSpeed={80}
-              delaySpeed={1000}      
+              delaySpeed={1000}
             />
           </motion.h1>
 
@@ -44,13 +45,22 @@ const Hero = () => {
           </motion.p>
 
           {/* CTA */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 4.5, type: "spring", stiffness: 120 }}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={openResume}
+            aria-label="resume"
+            style={{ textDecoration: "none", display: "inline-block" }}
           >
-            <CTA>My Resume</CTA>
-          </motion.div>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 4.5, type: "spring", stiffness: 120 }}
+            >
+              <CTA>My Resume</CTA>
+            </motion.div>
+          </a>
 
           {/* contact icons */}
           <div className="flex gap-3 mt-1 ml-1">

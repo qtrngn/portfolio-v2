@@ -3,7 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa6";
 
 const Contact = () => {
-  const [status, setStatus] = useState(null); // 'success' | 'error'
+  const [status, setStatus] = useState(null); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,7 +97,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="nline-block mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
+              className="inline-block mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
             >
               Send Message
             </button>
