@@ -6,6 +6,7 @@ import ProjectDetail           from "../components/ProjectDetails";
 import { Modal }               from "../components/Modal";
 
 const Projects = () => {
+   const featuredProjects = projects.filter((p) => p.featured);
   const [selected, setSelected]   = useState(projects[0].id);
   const [modalOpen, setModalOpen] = useState(false);
   const activeDetail = projectDetails.find((d) => d.id === selected);
@@ -21,7 +22,7 @@ const Projects = () => {
 
           {/* Left project list */}
           <ul className="w-full md:w-1/3 space-y-4">
-            {projects.map((proj) => (
+            {featuredProjects.map((proj) => (
               <li
                 key={proj.id}
                 onClick={() => setSelected(proj.id)}

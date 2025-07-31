@@ -30,6 +30,7 @@ export const projectDetails = [
         github:  "https://github.com/qtrngn/netflix-landingpage",
         liveDemo: "https://netflix-landingpage-azure.vercel.app/",
         tags: ["React", "Web Development"],
+        featured: false, 
     },
 
     {
@@ -88,6 +89,7 @@ export const projectDetails = [
         github:  "https://github.com/qtrngn/restaurant-website",
         liveDemo: "https://restaurant-website-pbx9tj8q7-qtrngns-projects.vercel.app/",
         tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
+        featured: false, 
     },
 
     {
