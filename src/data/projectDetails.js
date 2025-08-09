@@ -102,25 +102,59 @@ export const projectDetails = [
     liveDemo: null,
     tags: ["React Native", "WeatherAPI", "Lottie", "Axios", "App Development"],
   },
-  // BOOK EXPLORERS
-  {
-    id: "book-explorers",
-    type: "School project",
-    title: "Book explorers application",
-    description:
-      "Book Explorers is a mobile app built with React Native that allows users to search for books using the Google Books API and securely log in using Firebase Authentication. The idea behind the app was to create a functional tool for book discovery while building my skills with API integration, authentication flows, and mobile UI design.",
-    features: [
-      "Search and browse books via the Google Books API",
-      "User authentication with Firebase (sign up, login)",
-      "Axios integration for API request",
-    ],
-    technologies: ["React Native", "Google Books API", "Firebase", "Axios"],
-    image: [],
-    github: "https://github.com/qtrngn/bookExplorer-app",
-    liveDemo: null,
-    tags: ["React Native", "Firebase", "Axios", "App Development"],
-  },
+
   
+  // BOOK EXPLORERS
+ {
+  id: "book-explorers",
+  type: "School project",
+  title: "Book Explorers Application",
+  description:
+    "Book Explorers is a mobile app built with React Native that allows users to search for books using the Google Books API and securely log in using Firebase Authentication. The idea behind the app was to create a functional tool for book discovery while building my skills with API integration, authentication flows, and mobile UI design.",
+
+  problemStatement: 
+    "Many book search apps lack a modern mobile experience. The goal was to create a fast, minimal, and secure book discovery tool with a smooth user experience on mobile",
+
+  developmentProcess: [
+    "Set clear goals: make the app quick to search books, easy to log in securely",
+    "Organized the code into layers: Screens (Home, Favorites, Profile, SignIn and SignUp), Services (API calls, authentication, storage), and Hooks (reusable logic like user login and book search).",
+    "Built the login system with Firebase: checks if a user is signed in before showing the main pages, validates forms before sending data, and keeps users signed in between app sessions.",
+    "Improved speed and smoothness: used React hooks to manage app state, optimized list rendering, cached book images, and showed placeholders while images load.",
+    "Optimized the book details page: loads with the info already fetched and only requests extra details when needed.",
+    "Kept security in mind: no private keys in the app, let Firebase manage login tokens, and checked all user inputs before sending them to the server.",
+    "Made the app accessible: added labels for screen readers, ensured buttons are large enough to tap, adjusted text for user settings, and made forms move correctly with the keyboard.",
+  ],
+
+  features: [
+    "Search and browse books via the Google Books API",
+    "View detailed book information (cover, author, description)",
+    "User authentication with Firebase (sign up, login)",
+    "Axios integration for API requests",
+    "Responsive mobile-first UI"
+  ],
+
+  screenshots: [
+    { src: netflix1,caption: "Hero section" },
+  { src: netflix2, caption: "Plans section" },
+  { src: res1,     caption: "Footer" }
+  ],
+
+  outcome: 
+    "Successfully built a fully functional book search app with secure authentication and a clean, responsive UI. Improved my skills in API integration, authentication flows, state management, and performance optimization in mobile apps.",
+
+  futureImprovements: [
+    "Add reading streaks",
+    "Implement dark mode theme",
+  ],
+
+  technologies: ["React Native", "Google Books API", "Firebase", "Axios"],
+  image: [],
+  github: "https://github.com/qtrngn/bookExplorer-app",
+  liveDemo: null,
+  tags: ["React Native", "Firebase", "Axios", "App Development"]
+},
+
+
   // BOOK EXPLORERS WEBSITE
   {
     id: "book-explorers-website",

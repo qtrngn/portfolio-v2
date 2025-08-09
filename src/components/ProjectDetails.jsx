@@ -1,44 +1,75 @@
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { Carousel } from './Carousel';
+import { useState, useCallback, useRef } from "react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-export default function ProjectDetail({ project }) {
-
-  const images = Array.isArray(project.image)
-    ? project.image
-    : project.image
-    ? [project.image]
-    : [];
+export default function ProjectDetails({ project, onBack }) {
+  if (!project) return null;
 
   return (
-    <div className="space-y-6">
-      {/* HEADER */}
+    <div className="space-y-8">
+      {/* Back */}
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="inline-flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-50"
+        >
+          ← Back
+        </button>
+      )}
+
+      {/* Header */}
       <header>
-        <h2 className="text-2xl font-extrabold leading-snug text-gray-700 uppercase">{project.title}</h2>
+        <h2 className="text-2xl font-extrabold leading-snug text-gray-800">
+          {project.title}
+        </h2>
         <p className="text-sm text-gray-500">{project.type}</p>
       </header>
 
-      {/* IMAGES */}
-      <Carousel images={images} altPrefix={project.title} />
-      
-      { /* DESCRIPTION */}
-      <p>{project.description}</p>
+      {/* Description */}
+      {project.description && (
+        <p className="text-gray-700">{project.description}</p>
+      )}
 
-        {/* FEATURES */}
-      {project.features && (
-        <div>
-          <h3 className="text-lg font-semibold text-gray-700">Features</h3>
-          <ul className="list-disc list-inside mt-2 space-y-1">
+      {/* Problem / Goal */}
+      {project.problemStatement && (
+        <Section title="Problem">
+          <p className="text-gray-700">{project.problemStatement}</p>
+        </Section>
+      )}
+
+      {/* Development Process */}
+      {Array.isArray(project.developmentProcess) &&
+        project.developmentProcess.length > 0 && (
+          <Section title="Development Process">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              {project.developmentProcess.map((step, idx) => (
+                <li key={idx}>{step}</li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+      {/* Screenshots (right after process) */}
+      {Array.isArray(project.screenshots) && project.screenshots.length > 0 && (
+        <ScreenshotsCarousel
+          screenshots={project.screenshots}
+          title={project.title}
+        />
+      )}
+
+      {/* Features */}
+      {Array.isArray(project.features) && project.features.length > 0 && (
+        <Section title="Features">
+          <ul className="list-disc list-inside space-y-1 text-gray-700">
             {project.features.map((feat, idx) => (
               <li key={idx}>{feat}</li>
             ))}
           </ul>
-        </div>
+        </Section>
       )}
 
-      {/* TECH */}
-      {project.technologies && (
-        <div>
-          <h3 className="text-lg font-semibold text-gray-700">Technologies</h3>
+      {/* Technologies */}
+      {Array.isArray(project.technologies) && project.technologies.length > 0 && (
+        <Section title="Technologies">
           <div className="flex flex-wrap gap-2 mt-2">
             {project.technologies.map((tech, idx) => (
               <span
@@ -49,11 +80,30 @@ export default function ProjectDetail({ project }) {
               </span>
             ))}
           </div>
-        </div>
+        </Section>
       )}
 
-      {/* LINKS */}
-      <div className="flex gap-4 mt-4">
+      {/* Outcome / Results */}
+      {project.outcome && (
+        <Section title="Outcome / Results">
+          <p className="text-gray-700">{project.outcome}</p>
+        </Section>
+      )}
+
+      {/* Future Improvements */}
+      {Array.isArray(project.futureImprovements) &&
+        project.futureImprovements.length > 0 && (
+          <Section title="Future Improvements">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              {project.futureImprovements.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+      {/* Links */}
+      <div className="flex gap-4">
         {project.github && (
           <a
             href={project.github}
@@ -78,5 +128,174 @@ export default function ProjectDetail({ project }) {
         )}
       </div>
     </div>
-);
+  );
+}
+
+/* ---------- helpers ---------- */
+
+function Section({ title, children }) {
+  return (
+    <section>
+      <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+      <div className="mt-2">{children}</div>
+    </section>
+  );
+}
+
+/* ---------- screenshots carousel + lightbox ---------- */
+
+function ScreenshotsCarousel({ screenshots, title }) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const openAt = useCallback((i) => {
+    setIndex(i);
+    setLightboxOpen(true);
+  }, []);
+
+  return (
+    <section>
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">Screenshots</h3>
+
+      {/* horizontal scroll with snap */}
+      <div className="relative">
+        <div
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
+          role="list"
+          aria-label={`${title} screenshots`}
+        >
+          {screenshots.map((shot, i) => (
+            <button
+              key={i}
+              onClick={() => openAt(i)}
+              className="group relative flex-none w-[320px] sm:w-[380px] md:w-[440px] aspect-[16/9] rounded-xl overflow-hidden snap-start bg-gray-100"
+              aria-label={`Open screenshot ${i + 1}`}
+            >
+              <img
+                src={shot.src}
+                alt={shot.caption || `${title} screenshot ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 md:group-hover:scale-105"
+                loading="lazy"
+              />
+              {shot.caption && (
+                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs sm:text-sm p-2">
+                  {shot.caption}
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={screenshots}
+          index={index}
+          onClose={() => setLightboxOpen(false)}
+          setIndex={setIndex}
+          title={title}
+        />
+      )}
+    </section>
+  );
+}
+
+function Lightbox({ images, index, setIndex, onClose, title }) {
+  const startX = useRef(0);
+  const deltaX = useRef(0);
+
+  const clampIndex = useCallback(
+    (i) => Math.max(0, Math.min(i, images.length - 1)),
+    [images.length]
+  );
+
+  const prev = useCallback(() => setIndex((i) => clampIndex(i - 1)), [setIndex, clampIndex]);
+  const next = useCallback(() => setIndex((i) => clampIndex(i + 1)), [setIndex, clampIndex]);
+
+  const onKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    },
+    [onClose, prev, next]
+  );
+
+  const onTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
+  const onTouchMove = (e) => {
+    deltaX.current = e.touches[0].clientX - startX.current;
+  };
+  const onTouchEnd = () => {
+    const threshold = 50;
+    if (deltaX.current > threshold) prev();
+    if (deltaX.current < -threshold) next();
+    startX.current = 0;
+    deltaX.current = 0;
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex flex-col"
+      role="dialog"
+      aria-modal="true"
+      onKeyDown={onKeyDown}
+      tabIndex={-1}
+    >
+      {/* top bar */}
+      <div className="flex items-center justify-between p-3 text-white">
+        <span className="text-sm truncate pr-3">{title}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-xs opacity-70">
+            {index + 1}/{images.length}
+          </span>
+          <button
+            onClick={onClose}
+            className="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20"
+            aria-label="Close"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      {/* image area */}
+      <div
+        className="relative flex-1 flex items-center justify-center select-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <button
+          onClick={prev}
+          className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          aria-label="Previous screenshot"
+        >
+          ‹
+        </button>
+
+        <img
+          src={images[index]?.src}
+          alt={images[index]?.caption || `${title} screenshot ${index + 1}`}
+          className="max-h-[80vh] max-w-[92vw] object-contain"
+        />
+
+        <button
+          onClick={next}
+          className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          aria-label="Next screenshot"
+        >
+          ›
+        </button>
+      </div>
+
+      {/* caption */}
+      {images[index]?.caption && (
+        <div className="px-4 pb-5 text-center text-white/90 text-sm ">
+          {images[index].caption}
+        </div>
+      )}
+    </div>
+  );
 }
