@@ -3,6 +3,8 @@ import projects                from "../data/projectData";
 import { projectDetails }      from "../data/projectDetails";
 import ProjectDetail           from "../components/ProjectDetails";
 import { Modal }               from "../components/Modal";
+import SEO from "../components/SEO";
+
 
 const Projects = () => {
    const featuredProjects = projects.filter((p) => p.featured);
@@ -12,6 +14,11 @@ const Projects = () => {
 
   return (
     <>
+     <SEO
+        title="Projects | Truc Quynh Nguyen"
+        description="Selected projects with clean UI and performance."
+        canonical="https://trucquynhng.com/projects"
+      />
       <section className="w-full px-6 py-20 md:py-40 bg-white">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10">
           {/* Title */}

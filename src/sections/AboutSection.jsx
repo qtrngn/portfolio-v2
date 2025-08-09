@@ -32,7 +32,7 @@ const AboutSection = () => {
           <CTA to="/about">More about me</CTA>
         </div>
         {/* skills section */}
-        <div className="hidden md:block">
+        <div className="block">
         <Skills />
         </div>
       </div>

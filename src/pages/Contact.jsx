@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa6";
+import SEO from "../components/SEO";
+
 
 const Contact = () => {
   const [status, setStatus] = useState(null); 
@@ -28,6 +30,12 @@ const Contact = () => {
   };
 
   return (
+    <>
+      <SEO
+        title="Contact | Truc Quynh Nguyen"
+        description="Get in touch for collaboration, or questions."
+        canonical="https://trucquynhng.com/contact"
+      />
     <section className="w-full px-6 py-20 md:py-40 bg-white">
       <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10">
         {/* Left: title + contact icons */}
@@ -113,6 +121,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

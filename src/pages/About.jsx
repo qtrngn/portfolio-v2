@@ -1,12 +1,18 @@
 import Profile from "../assets/images/profile.webp";
 import ValuesSection from "../sections/ValuesSection";
 import CTA from "../components/CTA";
+import SEO from "../components/SEO";
 import AboutMobile from "../components/AboutMobile";
 
 
 const About = () => {
   return (
     <>
+    <SEO
+        title="About Me | Truc Quynh Nguyen"
+        description="My journey and values as a front‑end developer."
+        canonical="https://trucquynhng.com/about"
+      />
     <AboutMobile/>
     <section className="relative max-w-[1200px] mx-auto hidden md:block">
       {/* Profile photo */}
