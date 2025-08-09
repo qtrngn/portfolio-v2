@@ -13,7 +13,7 @@ import {
 const navItems = [
   {
     href: "/",
-    icon: <FaHome className="text-black text-[16px]" />,
+    icon: <FaHome className="text-black text-[16px] " />,
     label: "Home",
   },
   {
@@ -46,12 +46,12 @@ const MobileFabNav = () => {
             animate={{
               opacity: 1,
               y: 0,
-              transition: { ease: "easeOut", duration: 0.3 },
+              transition: { ease: "easeOut", duration: 0.4 },
             }}
             exit={{
               opacity: 0,
               y: 20,
-              transition: { ease: "easeIn", duration: 0.2 },
+              transition: { ease: "easeIn", duration: 0.3 },
             }}
             className="flex flex-col items-end gap-3 mb-4"
           >
@@ -63,7 +63,7 @@ const MobileFabNav = () => {
               >
                 <Link
                   to={href}
-                  className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition"
+                  className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#c0392b] transition"
                 >
                   {icon}
                 </Link>
@@ -75,7 +75,7 @@ const MobileFabNav = () => {
 
       <button
         onClick={() => setOpen(!open)}
-        className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition"
+        className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105  transition"
         aria-label="Toggle Navigation"
       >
         {open ? (

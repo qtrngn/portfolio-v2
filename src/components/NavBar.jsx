@@ -15,13 +15,13 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className='hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-medium text-gray-600 mt-[2px]'>
-          {['about', 'projects', 'contact'].map((section) => (
+          {['about', 'projects'].map((section) => (
             <NavLink
               key={section}
               to={section}
               className={({ isActive }) =>
                 'cursor-pointer px-3 py-1 rounded-full transition-colors ' +
-                (isActive ? 'bg-black text-white' : 'hover:bg-black hover:text-white')
+                (isActive ? 'bg-black text-white' : 'hover:bg-[#c0392b] hover:text-white')
               }
             >
               {section.toUpperCase()}
