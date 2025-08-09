@@ -120,6 +120,7 @@ export const projectDetails = [
     liveDemo: null,
     tags: ["React Native", "Firebase", "Axios", "App Development"],
   },
+  
   // BOOK EXPLORERS WEBSITE
   {
     id: "book-explorers-website",
