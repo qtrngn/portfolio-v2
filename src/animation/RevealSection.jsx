@@ -1,4 +1,3 @@
-// RevealSection.jsx
 import { motion } from "framer-motion";
 
 const RevealSection = ({ children }) => {

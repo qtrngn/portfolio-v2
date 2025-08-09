@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full px-6 py-40 bg-white">
+    <section className="w-full px-6 py-20 md:py-40 bg-white">
       <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-10">
         {/* Left: title + contact icons */}
         <div className="md:w-1/3">

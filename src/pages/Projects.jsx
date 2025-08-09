@@ -1,4 +1,3 @@
-// src/components/Projects.jsx
 import { useState }            from "react";
 import projects                from "../data/projectData";
 import { projectDetails }      from "../data/projectDetails";

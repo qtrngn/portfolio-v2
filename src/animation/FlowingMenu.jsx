@@ -1,7 +1,6 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 
-// Component: renders a vertical list of items that slide in a quote on hover
 function FlowingMenu({ items = [] }) {
   return (
     <div className="w-full h-full overflow-hidden">
@@ -14,7 +13,6 @@ function FlowingMenu({ items = [] }) {
   );
 }
 
-// Each MenuItem shows its `text`, and slides in its `quote` from the closest edge
 function MenuItem({ text, quote }) {
   const itemRef = useRef(null);
   const quoteRef = useRef(null);
@@ -25,7 +23,6 @@ function MenuItem({ text, quote }) {
       gsap.set(quoteRef.current, { y: '100%' });
     }
       }, []);
-  // Determine whether the mouse entered/exited from top or bottom
   const findClosestEdge = (mouseX, mouseY, width, height) => {
     const topDist = (mouseX - width / 2) ** 2 + mouseY ** 2;
     const bottomDist = (mouseX - width / 2) ** 2 + (mouseY - height) ** 2;

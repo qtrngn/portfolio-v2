@@ -5,10 +5,10 @@ const SmoothScroll = () => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.3,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
       smooth: true,
-      smoothTouch: true, // smooth on mobile too
-      wheelMultiplier: 1, // control sensitivity
+      smoothTouch: true, 
+      wheelMultiplier: 1, 
     });
 
     function raf(time) {

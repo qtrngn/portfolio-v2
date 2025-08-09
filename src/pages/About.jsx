@@ -1,10 +1,14 @@
 import Profile from "../assets/images/profile.webp";
 import ValuesSection from "../sections/ValuesSection";
 import CTA from "../components/CTA";
+import AboutMobile from "../components/AboutMobile";
+
 
 const About = () => {
   return (
-    <section className="relative max-w-[1200px] mx-auto ">
+    <>
+    <AboutMobile/>
+    <section className="relative max-w-[1200px] mx-auto hidden md:block">
       {/* Profile photo */}
       <div className="absolute inset-y-0 left-0 w-1/2 overflow-hidden ">
         <img
@@ -31,9 +35,9 @@ const About = () => {
           </p>
         </div>
         {/* Header section */}
-        <h2 className="text-3xl md:text-6xl lg:text-8xl font-extrabold leading-tight w-full pt-10 pl-3">
+        <h2 className=" md:text-6xl lg:text-8xl font-extrabold leading-tight w-full pt-10 pl-3">
           <span className="text-white">META</span>DATA
-          <span className="block pl-63">OF ME</span>
+          <span className="block pl-63 text-gray-700">OF ME</span>
         </h2>
       </div>
       {/* Sub text */}
@@ -44,7 +48,11 @@ const About = () => {
       <div className="max-w-[1200px] mx-auto flex justify-center ">
         <CTA to="/contact">Contact Me</CTA>
         </div>
+        
     </section>
+
+    </>
+    
   );
 };
 

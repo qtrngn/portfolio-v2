@@ -1,5 +1,4 @@
-
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
 export function Modal({ isOpen, onClose, children }) {
