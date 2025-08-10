@@ -155,7 +155,7 @@ function ScreenshotsCarousel({ screenshots, title }) {
 
   return (
     <section>
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">Screenshots</h3>
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">Images</h3>
 
       {/* horizontal scroll with snap */}
       <div className="relative">
