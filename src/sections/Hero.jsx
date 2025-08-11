@@ -9,8 +9,8 @@ import { Typewriter } from "react-simple-typewriter";
 const Hero = () => {
   const openResume = (e) => {
     e.preventDefault();
-  window.open("/Resume.pdf", "_blank", "noopener,noreferrer");
-  }
+    window.open("/Resume.pdf", "_blank", "noopener,noreferrer");
+  };
   return (
     <section className="w-full md:h-screen flex items-center justify-center px-6 bg-white relative overflow-hidden pt-20">
       <div className="max-w-[1200px] w-full flex flex-col md:flex-row items-center justify-center md:justify-between min-h-[60vh] md:min-h-0 z-10">
@@ -45,22 +45,14 @@ const Hero = () => {
           </motion.p>
 
           {/* CTA */}
-          <a
+          <CTA
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={openResume}
-            aria-label="resume"
-            style={{ textDecoration: "none", display: "inline-block" }}
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 4.5, type: "spring", stiffness: 120 }}
-            >
-              <CTA>My Resume</CTA>
-            </motion.div>
-          </a>
+            My Resume
+          </CTA>
 
           {/* contact icons */}
           <div className="flex gap-3 mt-1 ml-1">

@@ -1,13 +1,25 @@
 import netflix1 from "../assets/projects-details-image/netflix1.webp";
 import netflix2 from "../assets/projects-details-image/netflix2.webp";
+
 import petsmart from "../assets/projects-details-image/petsmart.webp";
+
 import picasso1 from "../assets/projects-details-image/picasso1.webp";
 import picasso2 from "../assets/projects-details-image/picasso2.webp";
 import picasso3 from "../assets/projects-details-image/picasso3.webp";
+
 import res1 from "../assets/projects-details-image/res1.webp";
 import res2 from "../assets/projects-details-image/res2.webp";
 import res3 from "../assets/projects-details-image/res3.webp";
 import res4 from "../assets/projects-details-image/res4.webp";
+
+import weatherDark from "../assets/projects-details-image/weather-dark.png";
+import weatherMorning from "../assets/projects-details-image/weather-morning.png";
+import astronomy from "../assets/projects-details-image/weather-astronomy.png";
+
+import bookMain from "../assets/projects-details-image/book-main.png";
+import bookDetail from "../assets/projects-details-image/book-detail.png";
+import bookFavorite from "../assets/projects-details-image/book-favorite.png";
+import bookLogin from "../assets/projects-details-image/book-login.png";
 
 export const projectDetails = [
   // NETFLIX
@@ -84,24 +96,52 @@ export const projectDetails = [
     tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
     featured: false,
   },
-  // WEATHER APPLICATION
-  {
-    id: "weather-application",
-    type: "School project",
-    title: "Weather Application",
-    description:
-      "The weather application using React Native and API integration. The app fetches current weather data using Weather API and display it with clean UI. I used Axios to handle network requests efficiently and integrated Lottie animations to visually represent weather conditions in a fun, interactive way.",
-    features: [
-      "Real time weather data",
-      "Lottie animations for dynamic weather visuals",
-      "Axios integration for API request",
-    ],
-    technologies: ["React Native", "Weather API", "Lottie", "Axios"],
-    image: [],
-    github: "https://github.com/qtrngn/weather-application",
-    liveDemo: null,
-    tags: ["React Native", "WeatherAPI", "Lottie", "Axios", "App Development"],
-  },
+
+// WEATHER APPLICATION
+{
+  id: "weather-application",
+  type: "School project",
+  title: "Weather Application",
+  description:
+    "A simple React Native app that shows real-time weather data using WeatherAPI. The app uses Axios to get data quickly and Lottie animations to display background in a fun and interactive way.",
+
+  problemStatement:
+    "I wanted to create a fast, clean, and easy-to-use weather app that shows the most important information right away.",
+
+  developmentProcess: [
+    "Built main screens: Home (current weather) with Search (find cities), and Astronomy (sunrise/sunset info).",
+    "Connected to WeatherAPI using Axios for smooth and reliable data fetching.",
+    "Added location support: asks for permission and falls back to manual search if denied.",
+    "Used Lottie animations to show different background depends on the location time in an engaging way.",
+    "Improved performance by caching recent weather data and showing placeholders while loading.",
+  ],
+
+  features: [
+    "Real-time weather (temperature, humidity, wind)",
+    "Search weather by city",
+    "Location-based weather",
+    "Lottie animations for day/night",
+    "Astronomy info",
+  ],
+
+  screenshots: [
+    { src: weatherDark, caption: "Night time" },
+    { src: weatherMorning, caption: "Day time" },
+    { src: astronomy, caption: "Astronomy info" }
+  ],
+
+  outcome:
+    "Successfully built a weather app that is fast, easy to use, and visually appealing. I improved my skills in API integration, animations, and mobile UI design.",
+
+  futureImprovements: [
+    "Add current location",
+  ],
+
+  technologies: ["React Native", "WeatherAPI", "Lottie", "Axios"],
+  github: "https://github.com/qtrngn/weather-application",
+  liveDemo: null,
+  tags: ["React Native", "WeatherAPI", "Lottie", "Axios", "App Development"]
+},
 
   // BOOK EXPLORERS
   {
@@ -129,13 +169,13 @@ export const projectDetails = [
       "View detailed book information (cover, author, description)",
       "User authentication with Firebase (sign up, login)",
       "Axios integration for API requests",
-      "Responsive mobile-first UI",
     ],
 
     screenshots: [
-      { src: netflix1, caption: "Hero section" },
-      { src: netflix2, caption: "Plans section" },
-      { src: res1, caption: "Footer" },
+      { src: bookMain, caption: "Main page" },
+      { src: bookFavorite, caption: "Favorite page" },
+      { src: bookDetail, caption: "Detail page" },
+      { src: bookLogin, caption: "Login page" },
     ],
 
     outcome:
@@ -175,6 +215,7 @@ export const projectDetails = [
       "Web Development",
     ],
   },
+
   // FINANCIAL DASHBOARD
   {
     id: "financial-dashboard",
@@ -200,6 +241,7 @@ export const projectDetails = [
       "Web Development",
     ],
   },
+
   // PAPER TRADING
   {
     id: "paper-trading",

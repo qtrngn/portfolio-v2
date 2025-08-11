@@ -41,9 +41,9 @@ const About = () => {
           </p>
         </div>
         {/* Header section */}
-        <h2 className=" md:text-6xl lg:text-8xl font-extrabold leading-tight w-full pt-10 pl-3">
+        <h2 className=" md:text-6xl lg:text-8xl font-extrabold leading-tight w-full pt-15 pl-1">
           <span className="text-white">META</span>DATA
-          <span className="block pl-63 text-gray-700">OF ME</span>
+          <span className="block pl-63 text-black">OF ME</span>
         </h2>
       </div>
       {/* Sub text */}

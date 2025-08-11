@@ -8,7 +8,7 @@ import SEO from "../components/SEO";
 
 const Projects = () => {
    const featuredProjects = projects.filter((p) => p.featured);
-  const [selected, setSelected]   = useState(projects[0].id);
+  const [selected, setSelected]   = useState(projects[5].id);
   const [modalOpen, setModalOpen] = useState(false);
   const activeDetail = projectDetails.find((d) => d.id === selected);
 
