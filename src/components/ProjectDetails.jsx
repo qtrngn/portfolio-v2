@@ -22,7 +22,7 @@ export default function ProjectDetails({ project }) {
 
       {/* Problem / Goal */}
       {project.problemStatement && (
-        <Section title="Problem">
+        <Section title="Goal">
           <p className="text-gray-700">{project.problemStatement}</p>
         </Section>
       )}
