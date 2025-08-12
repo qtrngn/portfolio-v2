@@ -1,21 +1,12 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { Modal } from "../components/Modal";
 
-export default function ProjectDetails({ project, onBack }) {
+export default function ProjectDetails({ project }) {
   if (!project) return null;
 
   return (
     <div className="space-y-8">
-      {/* Back */}
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-50"
-        >
-          ← Back
-        </button>
-      )}
-
       {/* Header */}
       <header>
         <h2 className="text-2xl font-extrabold leading-snug text-gray-800">
@@ -48,7 +39,7 @@ export default function ProjectDetails({ project, onBack }) {
           </Section>
         )}
 
-      {/* Screenshots (right after process) */}
+      {/* Screenshots */}
       {Array.isArray(project.screenshots) && project.screenshots.length > 0 && (
         <ScreenshotsCarousel
           screenshots={project.screenshots}
@@ -68,20 +59,21 @@ export default function ProjectDetails({ project, onBack }) {
       )}
 
       {/* Technologies */}
-      {Array.isArray(project.technologies) && project.technologies.length > 0 && (
-        <Section title="Technologies">
-          <div className="flex flex-wrap gap-2 mt-2">
-            {project.technologies.map((tech, idx) => (
-              <span
-                key={idx}
-                className="px-2 py-1 rounded-full text-sm text-black border-2 border-black"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </Section>
-      )}
+      {Array.isArray(project.technologies) &&
+        project.technologies.length > 0 && (
+          <Section title="Technologies">
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.technologies.map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="px-2 py-1 rounded-full text-sm text-black border-2 border-black"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </Section>
+        )}
 
       {/* Outcome / Results */}
       {project.outcome && (
@@ -209,18 +201,27 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
     [images.length]
   );
 
-  const prev = useCallback(() => setIndex((i) => clampIndex(i - 1)), [setIndex, clampIndex]);
-  const next = useCallback(() => setIndex((i) => clampIndex(i + 1)), [setIndex, clampIndex]);
-
-  const onKeyDown = useCallback(
-    (e) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    },
-    [onClose, prev, next]
+  const prev = useCallback(
+    () => setIndex((i) => clampIndex(i - 1)),
+    [setIndex, clampIndex]
+  );
+  const next = useCallback(
+    () => setIndex((i) => clampIndex(i + 1)),
+    [setIndex, clampIndex]
   );
 
+  // Arrow key navigation
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [prev, next, onClose]);
+
+  // Touch swipe
   const onTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
   };
@@ -236,31 +237,27 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex flex-col"
-      role="dialog"
-      aria-modal="true"
-      onKeyDown={onKeyDown}
-      tabIndex={-1}
+    <Modal
+      isOpen
+      onClose={onClose}
+      closeOnEsc
+      ariaLabel={`${title} screenshots`}
+      backdropClassName="bg-black/90 backdrop-blur-sm"
+      panelClassName="relative bg-transparent w-full h-full max-w-none max-h-none flex flex-col"
+      closeButtonClassName="text-white bg-white/10 hover:bg-white/20"
+      showCloseButton
     >
-      {/* top bar */}
-      <div className="flex items-center justify-between p-3 text-white">
+      {/* Top bar — extra right padding so it never sits under the floating X */}
+      <div className="flex items-center justify-between p-3 pr-16 sm:pr-20 text-white">
         <span className="text-sm truncate pr-3">{title}</span>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <span className="text-xs opacity-70">
             {index + 1}/{images.length}
           </span>
-          <button
-            onClick={onClose}
-            className="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20"
-            aria-label="Close"
-          >
-            Close
-          </button>
         </div>
       </div>
 
-      {/* image area */}
+      {/* Image area */}
       <div
         className="relative flex-1 flex items-center justify-center select-none"
         onTouchStart={onTouchStart}
@@ -290,12 +287,12 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
         </button>
       </div>
 
-      {/* caption */}
+      {/* Caption */}
       {images[index]?.caption && (
-        <div className="px-4 pb-5 text-center text-white/90 text-sm ">
+        <div className="px-4 pb-5 text-center text-white/90 text-sm">
           {images[index].caption}
         </div>
       )}
-    </div>
+    </Modal>
   );
 }
