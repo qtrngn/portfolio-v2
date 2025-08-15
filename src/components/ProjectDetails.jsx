@@ -7,27 +7,59 @@ export default function ProjectDetails({ project }) {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <header>
-        <h2 className="text-2xl font-extrabold leading-snug text-gray-800">
-          {project.title}
-        </h2>
-        <p className="text-sm text-gray-500">{project.type}</p>
-      </header>
+      {/*  header  */}
+      <div className="sticky top-0 z-20 -mx-6 -mt-6 px-6 pt-6 pb-3 bg-transparent">
+        <div className="w-full md:w-1/2 rounded-3xl bg-white/70 supports-[backdrop-filter]:bg-white/45 backdrop-blur-md backdrop-saturate-125 border border-black/5 shadow-[0_14px_48px_-16px_rgba(0,0,0,0.24)]">
+          <div className="p-5">
+            <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-gray-900">
+              {project.title}
+            </h2>
+            {project.type && (
+              <p className="mt-1 text-sm text-gray-600">{project.type}</p>
+            )}
 
-      {/* Description */}
+            {/* Links header */}
+            <div className="mt-3 flex items-center gap-2">
+              {project.liveDemo && (
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 grid place-items-center rounded-full bg-black/5 hover:bg-black/10 transition"
+                  aria-label="Live demo"
+                  title="Live demo"
+                >
+                  <FaExternalLinkAlt className="text-black text-[18px]" />
+                </a>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 grid place-items-center rounded-full bg-black/5 hover:bg-black/10 transition"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <FaGithub className="text-black text-[18px]" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Body sections  */}
       {project.description && (
         <p className="text-gray-700">{project.description}</p>
       )}
 
-      {/* Problem / Goal */}
       {project.problemStatement && (
         <Section title="Goal">
           <p className="text-gray-700">{project.problemStatement}</p>
         </Section>
       )}
 
-      {/* Development Process */}
       {Array.isArray(project.developmentProcess) &&
         project.developmentProcess.length > 0 && (
           <Section title="Development Process">
@@ -39,15 +71,6 @@ export default function ProjectDetails({ project }) {
           </Section>
         )}
 
-      {/* Screenshots */}
-      {Array.isArray(project.screenshots) && project.screenshots.length > 0 && (
-        <ScreenshotsCarousel
-          screenshots={project.screenshots}
-          title={project.title}
-        />
-      )}
-
-      {/* Features */}
       {Array.isArray(project.features) && project.features.length > 0 && (
         <Section title="Features">
           <ul className="list-disc list-inside space-y-1 text-gray-700">
@@ -58,7 +81,6 @@ export default function ProjectDetails({ project }) {
         </Section>
       )}
 
-      {/* Technologies */}
       {Array.isArray(project.technologies) &&
         project.technologies.length > 0 && (
           <Section title="Technologies">
@@ -75,14 +97,12 @@ export default function ProjectDetails({ project }) {
           </Section>
         )}
 
-      {/* Outcome / Results */}
       {project.outcome && (
         <Section title="Outcome / Results">
           <p className="text-gray-700">{project.outcome}</p>
         </Section>
       )}
 
-      {/* Future Improvements */}
       {Array.isArray(project.futureImprovements) &&
         project.futureImprovements.length > 0 && (
           <Section title="Future Improvements">
@@ -94,36 +114,18 @@ export default function ProjectDetails({ project }) {
           </Section>
         )}
 
-      {/* Links */}
-      <div className="flex gap-4">
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition"
-            aria-label="View source on GitHub"
-          >
-            <FaGithub className="text-black text-[18px]" />
-          </a>
-        )}
-        {project.liveDemo && (
-          <a
-            href={project.liveDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition"
-            aria-label="View live demo"
-          >
-            <FaExternalLinkAlt className="text-black text-[18px]" />
-          </a>
-        )}
-      </div>
+      {/*  Screenshots */}
+      {Array.isArray(project.screenshots) && project.screenshots.length > 0 && (
+        <ScreenshotsBlock
+          screenshots={project.screenshots}
+          title={project.title}
+        />
+      )}
     </div>
   );
 }
 
-/* ---------- helpers ---------- */
+/*  helpers  */
 
 function Section({ title, children }) {
   return (
@@ -134,9 +136,9 @@ function Section({ title, children }) {
   );
 }
 
-/* ---------- screenshots carousel + lightbox ---------- */
+/*  screenshots block  */
 
-function ScreenshotsCarousel({ screenshots, title }) {
+function ScreenshotsBlock({ screenshots, title }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -147,35 +149,42 @@ function ScreenshotsCarousel({ screenshots, title }) {
 
   return (
     <section>
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">Images</h3>
-
-      {/* horizontal scroll with snap */}
-      <div className="relative">
-        <div
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
-          role="list"
-          aria-label={`${title} screenshots`}
-        >
-          {screenshots.map((shot, i) => (
-            <button
-              key={i}
-              onClick={() => openAt(i)}
-              className="group relative flex-none w-[320px] sm:w-[380px] md:w-[440px] aspect-[16/9] rounded-xl overflow-hidden snap-start bg-gray-100"
-              aria-label={`Open screenshot ${i + 1}`}
+      {/* screenshot container */}
+      <div
+        className="
+          rounded-3xl
+          bg-neutral-900/70 supports-[backdrop-filter]:bg-neutral-900/45
+          backdrop-blur-xl backdrop-saturate-150
+          shadow-[0_20px_70px_-20px_rgba(0,0,0,0.6)]
+          relative text-white
+        "
+      >
+      
+        <div className="pointer-events-none absolute inset-0 rounded-3xl shadow-[inset_0_1px_rgba(255,255,255,0.06)]" />
+        <div className="p-5">
+          {/* Horizontal scroll */}
+          <div className="relative">
+            <div
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
+              role="list"
+              aria-label={`${title} screenshots`}
             >
-              <img
-                src={shot.src}
-                alt={shot.caption || `${title} screenshot ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 md:group-hover:scale-105"
-                loading="lazy"
-              />
-              {shot.caption && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs sm:text-sm p-2">
-                  {shot.caption}
-                </div>
-              )}
-            </button>
-          ))}
+              {screenshots.map((shot, i) => (
+                <button
+                  key={i}
+                  onClick={() => openAt(i)}
+                  aria-label={`Open screenshot ${i + 1}`}
+                >
+                  <img
+                    src={shot.src}
+                    alt={shot.caption || `${title} screenshot ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 md:group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -185,14 +194,13 @@ function ScreenshotsCarousel({ screenshots, title }) {
           index={index}
           onClose={() => setLightboxOpen(false)}
           setIndex={setIndex}
-          title={title}
         />
       )}
     </section>
   );
 }
 
-function Lightbox({ images, index, setIndex, onClose, title }) {
+function Lightbox({ images, index, setIndex, onClose }) {
   const startX = useRef(0);
   const deltaX = useRef(0);
 
@@ -200,7 +208,6 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
     (i) => Math.max(0, Math.min(i, images.length - 1)),
     [images.length]
   );
-
   const prev = useCallback(
     () => setIndex((i) => clampIndex(i - 1)),
     [setIndex, clampIndex]
@@ -210,7 +217,6 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
     [setIndex, clampIndex]
   );
 
-  // Arrow key navigation
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "ArrowLeft") prev();
@@ -221,7 +227,6 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [prev, next, onClose]);
 
-  // Touch swipe
   const onTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
   };
@@ -229,70 +234,89 @@ function Lightbox({ images, index, setIndex, onClose, title }) {
     deltaX.current = e.touches[0].clientX - startX.current;
   };
   const onTouchEnd = () => {
-    const threshold = 50;
-    if (deltaX.current > threshold) prev();
-    if (deltaX.current < -threshold) next();
+    const t = 50;
+    if (deltaX.current > t) prev();
+    if (deltaX.current < -t) next();
     startX.current = 0;
     deltaX.current = 0;
   };
+
+  const name =
+    images[index]?.name || images[index]?.caption || `Screenshot ${index + 1}`;
 
   return (
     <Modal
       isOpen
       onClose={onClose}
       closeOnEsc
-      ariaLabel={`${title} screenshots`}
-      backdropClassName="bg-black/90 backdrop-blur-sm"
-      panelClassName="relative bg-transparent w-full h-full max-w-none max-h-none flex flex-col"
-      closeButtonClassName="text-white bg-white/10 hover:bg-white/20"
+      ariaLabel={name}
+      /* backdrop */
+      backdropClassName="bg-black/60 backdrop-blur-sm"
+      closeButtonClassName="text-white/90 bg-white/10 hover:bg-white/20"
       showCloseButton
     >
-      {/* Top bar — extra right padding so it never sits under the floating X */}
-      <div className="flex items-center justify-between p-3 pr-16 sm:pr-20 text-white">
-        <span className="text-sm truncate pr-3">{title}</span>
-        <div className="flex items-center gap-3">
-          <span className="text-xs opacity-70">
-            {index + 1}/{images.length}
-          </span>
+      {/* header */}
+      <div className="sticky top-0 z-10 px-5 pt-5 pb-3">
+        <div
+          className="
+          rounded-2xl bg-white/10 supports-[backdrop-filter]:bg-black/12
+          backdrop-blur-lg shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]
+        "
+        >
+          <div className="px-4 py-3 relative">
+            
+            <div className="flex items-end justify-between gap-4">
+              <div className="min-w-0 text-2xl sm:text-3xl font-semibold leading-tight truncate text-black">
+                {name}
+              </div>
+              <div className="shrink-0 text-sm opacity-80 text-black">
+                {index + 1}/{images.length}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Image area */}
+{/* Image area */}
       <div
-        className="relative flex-1 flex items-center justify-center select-none"
+        className="relative flex-1 flex items-center justify-center select-none px-5 py-6"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
         <button
           onClick={prev}
-          className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-black/10 hover:bg-white/20 text-white"
           aria-label="Previous screenshot"
         >
           ‹
         </button>
 
-        <img
-          src={images[index]?.src}
-          alt={images[index]?.caption || `${title} screenshot ${index + 1}`}
-          className="max-h-[80vh] max-w-[92vw] object-contain"
-        />
+        <div
+          className="
+          rounded-2xl
+          bg-white/10 supports-[backdrop-filter]:bg-white/10
+          backdrop-blur-lg
+          shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]
+          p-3 relative
+        "
+        >
+          <div className="pointer-events-none absolute left-3 right-3 top-3 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+          <img
+            src={images[index]?.src}
+            alt={name}
+            className="max-h-[70vh] max-w-[90vw] object-contain"
+          />
+          <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-10 bg-gradient-to-t from-black/20 to-transparent rounded-b-2xl" />
+        </div>
 
         <button
           onClick={next}
-          className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-black/10 hover:bg-white/20 text-white"
           aria-label="Next screenshot"
         >
           ›
         </button>
       </div>
-
-      {/* Caption */}
-      {images[index]?.caption && (
-        <div className="px-4 pb-5 text-center text-white/90 text-sm">
-          {images[index].caption}
-        </div>
-      )}
     </Modal>
   );
 }

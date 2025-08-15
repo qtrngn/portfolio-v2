@@ -1,4 +1,3 @@
-// src/components/ProjectSection.jsx
 import { useState, useRef } from "react";
 import CTA from "../components/CTA";
 import projects from "../data/projectData";
@@ -7,11 +6,15 @@ import { Modal } from "../components/Modal";
 import ProjectDetail from "../components/ProjectDetails";
 
 export default function ProjectSection() {
-  const featuredProjects = projects.filter((p) => p.featured);
+  const featuredProjects = projects
+  .filter(p => p.featured)
+  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+  .slice(0, 4);
   const [selectedId, setSelectedId] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const activeProject = projectDetails.find((d) => d.id === selectedId);
 
+  
   const handleClick = (id) => {
     setSelectedId(id);
     setModalOpen(true);

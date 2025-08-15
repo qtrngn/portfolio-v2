@@ -7,9 +7,11 @@ import book from "../assets/projects-image/book.png";
 import books from "../assets/projects-image/books.png";
 import finance from "../assets/projects-image/finance.png";
 import paper from "../assets/projects-image/paper.png";
+import kiddo from "../assets/projects-image/kiddo.png";
 
 
 const projects = [
+  // NETFLIX
   {
     id: "netflix",
     image: netflix,
@@ -19,15 +21,17 @@ const projects = [
     featured: false, 
   },
 
+  // RESTAURANT
   {
     id: "restaurant",
     image: restaurant,
     title: "RESTAURANT WEBSITE",
     year: "2024",
     tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
-    featured: false, 
+    featured: true, 
   },
 
+  // PETSMART
   {
     id: "petsmart",
     image: petsmart,
@@ -37,6 +41,7 @@ const projects = [
     featured: false, 
   },
 
+  // ART PORTFOLIO
   {
     id: "portfolio",
     image: portfolio,
@@ -46,6 +51,7 @@ const projects = [
     featured: false, 
   },
 
+  // WEATHER APPLICATION
   {
     id: "weather-application",
     image: weather,
@@ -54,6 +60,8 @@ const projects = [
     tags: ["React Native","WeatherAPI", "Lottie", "Axios", "App Development", ],
     featured: true, 
   },
+
+  // BOOK EXPLORERS APPLICATION
   {
     id: "book-explorers",
     image: book,
@@ -63,6 +71,7 @@ const projects = [
     featured: true, 
   },
 
+  // MYSQL BOOK WEBSITE
   {
     id: "book-explorers-website",
     image: books,
@@ -72,7 +81,7 @@ const projects = [
     featured: false, 
   },
 
-
+// FINANCIAL DASHBOARD
   {
     id: "financial-dashboard",
     image: finance,
@@ -82,6 +91,7 @@ const projects = [
     featured: true, 
   },
 
+  // PAPER TRADING
   {
     id: "paper-trading",
     image: paper,
@@ -91,6 +101,15 @@ const projects = [
     featured: true, 
   },
 
+  // KIDDO STYLE WEBSITE
+   {
+    id: "kiddo-style",
+    image: kiddo,
+    title: "KIDDO STYLE CYCLE",
+    year: "2025",
+    tags:  ["React", "TailwindCSS", "GitHub", "Vercel", "Web Development"],
+    featured: true, 
+  },
 
 ];
 

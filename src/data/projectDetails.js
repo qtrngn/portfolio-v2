@@ -7,10 +7,6 @@ import picasso1 from "../assets/projects-details-image/picasso1.webp";
 import picasso2 from "../assets/projects-details-image/picasso2.webp";
 import picasso3 from "../assets/projects-details-image/picasso3.webp";
 
-import res1 from "../assets/projects-details-image/res1.webp";
-import res2 from "../assets/projects-details-image/res2.webp";
-import res3 from "../assets/projects-details-image/res3.webp";
-import res4 from "../assets/projects-details-image/res4.webp";
 
 import weatherDark from "../assets/projects-details-image/weather-dark.png";
 import weatherMorning from "../assets/projects-details-image/weather-morning.png";
@@ -45,21 +41,35 @@ export const projectDetails = [
   {
     id: "restaurant",
     type: "School project",
-    title: "Restaurant website",
+    title: "Restaurant Website",
     description:
-      "This responsive restaurant website was built with HTML, CSS, and JavaScript plugins and optimized for different screen sizes. This project helped me understand responsive design principles and improve my understanding of layout structuring, visual design and basic interactivity without using any frameworks",
-    features: [
-      "Responsive layout for mobile, tablet and desktop",
-      "Animated sections and scrolling",
-      "Integration of plugins for basic interactivity",
+      "Built with HTML and CSS and enhanced with lightweight plugins, this responsive restaurant site emphasizes clean structure, accessible navigation, and fast load times, with a smooth image slider and anchored scrolling for a polished experience.",
+
+    problemStatement: null,
+
+    developmentProcess: [
+      "Created wireframes on Figma for mobile and desktop screens",
+      "Built with semantic HTML structure and styled with modern CSS",
+      "Integrated lightweight plugins (image carousel, smooth scrolling, map and contact form)",
     ],
-    technologies: ["HTML", "CSS", "JavaScript"],
-    image: [res1, res2, res3, res4],
-    github: "https://github.com/qtrngn/restaurant-website",
-    liveDemo:
-      "https://restaurant-website-pbx9tj8q7-qtrngns-projects.vercel.app/",
-    tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
+
+    features: [
+      "Responsive, single-page layout with section anchors (Home, Menu, About, Contact)",
+      "Menu showcase: six categories (Main, Tasting, Lunch Special, Dessert, Drink, Wine) with images and descriptions",
+      "Image carousel/gallery with multiple slides",
+    ],
+
+    screenshots: [],
+
+    outcome: null,
+
+    futureImprovements: null,
+
+    technologies: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
+    github: "https://github.com/qtrngn/bookExplorer-app",
+    liveDemo: "https://restaurant-website-mu-six.vercel.app/",
   },
+
   // PETSMART
   {
     id: "petsmart",
@@ -97,51 +107,49 @@ export const projectDetails = [
     featured: false,
   },
 
-// WEATHER APPLICATION
-{
-  id: "weather-application",
-  type: "School project",
-  title: "Weather Application",
-  description:
-    "A simple React Native app that shows real-time weather data using WeatherAPI. The app uses Axios to get data quickly and Lottie animations to display background in a fun and interactive way.",
+  // WEATHER APPLICATION
+  {
+    id: "weather-application",
+    type: "School project",
+    title: "Weather Application",
+    description:
+      "A simple React Native app that shows real-time weather data using WeatherAPI. The app uses Axios to get data quickly and Lottie animations to display background in a fun and interactive way.",
 
-  problemStatement:
-    "I wanted to create a fast, clean, and easy-to-use weather app that shows the most important information right away.",
+    problemStatement:
+      "I wanted to create a fast, clean, and easy-to-use weather app that shows the most important information right away.",
 
-  developmentProcess: [
-    "Built main screens: Home (current weather) with Search (find cities), and Astronomy (sunrise/sunset info).",
-    "Connected to WeatherAPI using Axios for smooth and reliable data fetching.",
-    "Added location support: asks for permission and falls back to manual search if denied.",
-    "Used Lottie animations to show different background depends on the location time in an engaging way.",
-    "Improved performance by caching recent weather data and showing placeholders while loading.",
-  ],
+    developmentProcess: [
+      "Built main screens: Home (current weather) with Search (find cities), and Astronomy (sunrise/sunset info).",
+      "Connected to WeatherAPI using Axios for smooth and reliable data fetching.",
+      "Added location support: asks for permission and falls back to manual search if denied.",
+      "Used Lottie animations to show different background depends on the location time in an engaging way.",
+      "Improved performance by caching recent weather data and showing placeholders while loading.",
+    ],
 
-  features: [
-    "Real-time weather (temperature, humidity, wind)",
-    "Search weather by city",
-    "Location-based weather",
-    "Lottie animations for day/night",
-    "Astronomy info",
-  ],
+    features: [
+      "Real-time weather (temperature, humidity, wind)",
+      "Search weather by city",
+      "Location-based weather",
+      "Lottie animations for day/night",
+      "Astronomy info",
+    ],
 
-  screenshots: [
-    { src: weatherDark, caption: "Night time" },
-    { src: weatherMorning, caption: "Day time" },
-    { src: astronomy, caption: "Astronomy info" }
-  ],
+    screenshots: [
+      { src: weatherDark, caption: "Night time" },
+      { src: weatherMorning, caption: "Day time" },
+      { src: astronomy, caption: "Astronomy info" },
+    ],
 
-  outcome:
-    "Successfully built a weather app that is fast, easy to use, and visually appealing. I improved my skills in API integration, animations, and mobile UI design.",
+    outcome:
+      "Successfully built a weather app that is fast, easy to use, and visually appealing. I improved my skills in API integration, animations, and mobile UI design.",
 
-  futureImprovements: [
-    "Add current location",
-  ],
+    futureImprovements: ["Add current location"],
 
-  technologies: ["React Native", "WeatherAPI", "Lottie", "Axios"],
-  github: "https://github.com/qtrngn/weather-application",
-  liveDemo: null,
-  tags: ["React Native", "WeatherAPI", "Lottie", "Axios", "App Development"]
-},
+    technologies: ["React Native", "WeatherAPI", "Lottie", "Axios"],
+    github: "https://github.com/qtrngn/weather-application",
+    liveDemo: null,
+    tags: ["React Native", "WeatherAPI", "Lottie", "Axios", "App Development"],
+  },
 
   // BOOK EXPLORERS
   {
@@ -184,7 +192,6 @@ export const projectDetails = [
     futureImprovements: ["Add reading streaks", "Implement dark mode theme"],
 
     technologies: ["React Native", "Google Books API", "Firebase", "Axios"],
-    image: [],
     github: "https://github.com/qtrngn/bookExplorer-app",
     liveDemo: null,
     tags: ["React Native", "Firebase", "Axios", "App Development"],
@@ -219,7 +226,7 @@ export const projectDetails = [
   // FINANCIAL DASHBOARD
   {
     id: "financial-dashboard",
-    type: "Personal project",
+    type: "Personal project - COMING SOON",
     title: "Financial dashboard",
     description:
       "I built this financial dashboard by following a tutorial to learn how full-stack applications are structured and how different technologies work together. The frontend is developed with React, TypeScript, and Material UI to create a responsive, clean interface, while the backend uses Express and MongoDB to handle data and API requests. The project includes features like interactive charts, tables, and KPIs, and helped me get hands-on experience with building a real-world, data-focused web application from start to finish.",
@@ -245,7 +252,7 @@ export const projectDetails = [
   // PAPER TRADING
   {
     id: "paper-trading",
-    type: "Personal project",
+    type: "Personal project - COMING SOON",
     title: "Paper trading simulator",
     description:
       "This paper trading simulator is a web app that lets users practice stock trading without real money. It shows live stock data using the Alpaca API and allows users to place mock buy and sell orders to simulate trading activity. I built the frontend with React and TypeScript, and used Firebase for user authentication so users can securely sign up, log in, and track their activity. The backend is powered by Express, and Axios is used to handle data requests.",
@@ -275,5 +282,42 @@ export const projectDetails = [
       "Axios",
       "Web Development",
     ],
+  },
+
+  // Kiddo Style project
+  {
+    id: "kiddo-style",
+    type: "School project completed in collaboration with the talented team of Czara, Negin, and Ju Kim",
+    title: "Kiddo Style Cycle",
+    description:
+      "An educational site for children that uses gameplay, friendly graphics, and simple storytelling to show how clothing waste harms the environment",
+
+    problemStatement: null,
+
+    developmentProcess: [
+     "Defined goals (teach fast-fashion impact to kids), mapped a simple flow on Figma",
+     "Created design on Figma",
+     "Built reusable components (Layout, Nav, Footer)",
+     "Mobile-first with Tailwind breakpoints, utility classes for rapid iteration, consistent spacing and type scale for readability",
+     "Continuous deploy to Vercel with preview URLs for reviews, main branch triggers production."
+    ],
+
+    features: [
+      "Interactive mini-game that teaches fast-fashion impacts (reduce/reuse/recycle mechanics, levels, scoring)",
+      "Quiz/checkpoint cards with instant feedback and badges",
+      "Kid-friendly UI: large tap targets, playful illustrations, readable type scale, clear iconography",
+      "Guided learning content: short fact cards, eco-tips after each level",
+    ],
+
+    screenshots: null,
+
+    outcome:
+      "A fast, accessible learning site built with React and Tailwind that runs smoothly on mobile and desktop, using an interactive game and quizzes to drive engagement and deepen understanding of fast fashion’s impact. Most importantly, delivered through close collaboration with an exceptional, highly professional team",
+
+    futureImprovements: null,
+
+    technologies: ["React", "TailwindCSS", "GitHub", "Vercel", "Web Development"],
+    github: "https://github.com/Kiddo-Style-Cycle/Termproject-QA",
+    liveDemo: "https://termproject-qa.vercel.app/",
   },
 ];
