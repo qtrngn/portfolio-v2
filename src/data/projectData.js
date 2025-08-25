@@ -28,7 +28,7 @@ const projects = [
     title: "RESTAURANT WEBSITE",
     year: "2024",
     tags: ["HTML", "CSS", "Responsive", "Plugins", "Web Development"],
-    featured: true, 
+    featured: false, 
   },
 
   // PETSMART
@@ -51,15 +51,16 @@ const projects = [
     featured: false, 
   },
 
-  // WEATHER APPLICATION
+  // PAPER TRADING
   {
-    id: "weather-application",
-    image: weather,
-    title: "WEATHER APPLICATION",
+    id: "paper-trading",
+    image: paper,
+    title: "PAPER TRADING SIMULATOR",
     year: "2025",
-    tags: ["React Native","WeatherAPI", "Lottie", "Axios", "App Development", ],
+    tags: ["React ","TypeScript", "Alpaca APIs", "Firebase", "Express", "Axios", "Web Development",],
     featured: true, 
   },
+
 
   // BOOK EXPLORERS APPLICATION
   {
@@ -91,15 +92,6 @@ const projects = [
     featured: true, 
   },
 
-  // PAPER TRADING
-  {
-    id: "paper-trading",
-    image: paper,
-    title: "PAPER TRADING SIMULATOR",
-    year: "2025",
-    tags: ["React ","TypeScript", "Alpaca", "Firebase", "Express", "Axios", "Web Development",],
-    featured: true, 
-  },
 
   // KIDDO STYLE WEBSITE
    {
@@ -108,6 +100,16 @@ const projects = [
     title: "KIDDO STYLE CYCLE",
     year: "2025",
     tags:  ["React", "TailwindCSS", "GitHub", "Vercel", "Web Development"],
+    featured: true, 
+  },
+
+    // WEATHER APPLICATION
+  {
+    id: "weather-application",
+    image: weather,
+    title: "WEATHER APPLICATION",
+    year: "2025",
+    tags: ["React Native","WeatherAPI", "Lottie", "Axios", "App Development", ],
     featured: true, 
   },
 
