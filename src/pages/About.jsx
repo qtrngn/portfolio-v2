@@ -46,14 +46,7 @@ const About = () => {
           <span className="block pl-63 text-black">OF ME</span>
         </h2>
       </div>
-      {/* Sub text */}
-      <div className="text-2xl font-bold mt-10 uppercase">
-        <h3>My Values</h3>
-      </div>
-      <ValuesSection />
-      <div className="max-w-[1200px] mx-auto flex justify-center ">
-        <CTA to="/contact">Contact Me</CTA>
-        </div>
+     
         
     </section>
 
